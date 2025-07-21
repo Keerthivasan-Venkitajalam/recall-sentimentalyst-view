@@ -1,73 +1,84 @@
-# Welcome to your Lovable project
+# Recall-Driven Sentimentalyst
 
-## Project info
+An autonomous AI trading agent built for the **Encode x Recall 'Autonomous Apes' Hackathon**. This bot listens to live financial news, performs real-time sentiment analysis, and executes trades on the cryptocurrency market.
 
-**URL**: https://lovable.dev/projects/e9630722-240f-4ea4-8935-34e83ae1dd64
+## Key Features
 
-## How can I edit this code?
+  - **Real-time Audio Processing:** Ingests live audio from financial news streams.
+  - **High-Accuracy Transcription:** Leverages the **Recall API** for fast and accurate speech-to-text conversion.
+  - **Advanced Sentiment Analysis:** Uses a fine-tuned NLP model to derive actionable sentiment from text.
+  - **Automated Trade Execution:** Places BUY/SELL orders based on configurable logic and keywords.
+  - **Modular & Configurable:** Easily adjust trading pairs, thresholds, and data sources.
 
-There are several ways of editing your application.
+## How It Works
 
-**Use Lovable**
+The agent follows a simple yet powerful workflow:
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/e9630722-240f-4ea4-8935-34e83ae1dd64) and start prompting.
+1.  **Ingest:** Captures live audio in chunks from a specified stream source.
+2.  **Transcribe:** Each audio chunk is sent to the **Recall API** for transcription.
+3.  **Analyze:** The resulting text is analyzed for sentiment scores and the presence of critical keywords (e.g., "bitcoin", "regulation").
+4.  **Decide:** If sentiment crosses a predefined threshold for a specific asset, a BUY or SELL signal is generated.
+5.  **Execute:** The signal is sent to a simulated exchange API to autonomously execute the trade.
 
-Changes made via Lovable will be committed automatically to this repo.
+## Tech Stack
 
-**Use your preferred IDE**
+  - **Core:** Python 3.9+
+  - **Primary API:** Recall API
+  - **NLP / AI:** Hugging Face `transformers`
+  - **Dependencies:** `requests`, `python-dotenv`, `websockets`
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Setup and Installation
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+1.  **Clone the repository:**
 
-Follow these steps:
+    ```sh
+    git clone https://github.com/Keerthivasan-Venkitajalam/recall-sentimentalyst-view.git
+    cd recall-sentimentalyst
+    ```
+
+2.  **Create and activate a virtual environment:**
+
+    ```sh
+    python -m venv venv
+    source venv/bin/activate
+    # On Windows, use: venv\Scripts\activate
+    ```
+
+3.  **Install the required dependencies:**
+
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+## Configuration
+
+Before running the bot, you must configure your API keys and settings.
+
+1.  Create a `.env` file in the root directory from the example template:
+
+    ```sh
+    cp config.py .env
+    ```
+
+2.  Open the newly created `.env` file and add your credentials obtained from the hackathon platform:
+
+    ```env
+    RECALL_API_KEY="YOUR_RECALL_API_KEY_HERE"
+    EXCHANGE_API_KEY="YOUR_EXCHANGE_API_KEY_HERE"
+    EXCHANGE_API_SECRET="YOUR_EXCHANGE_API_SECRET_HERE"
+    # ... and other configurations as needed
+    ```
+
+## Usage
+
+To run the trading agent, execute the main script from the root directory:
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+python main.py
 ```
 
-**Edit a file directly in GitHub**
+The bot will initialize and begin processing the audio stream. All activities, including detected sentiment and executed trades, will be logged to the console.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+-----
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/e9630722-240f-4ea4-8935-34e83ae1dd64) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+*This project was developed for the Encode x Recall Hackathon in July 2025.*
