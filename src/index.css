@@ -8,35 +8,61 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Dark Trading Dashboard Theme */
+    --background: 220 13% 9%;
+    --foreground: 220 13% 91%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 13% 15%;
+    --card-foreground: 220 13% 91%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 13% 15%;
+    --popover-foreground: 220 13% 91%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 189 100% 57%;
+    --primary-foreground: 220 13% 9%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 13% 20%;
+    --secondary-foreground: 220 13% 91%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 20%;
+    --muted-foreground: 220 9% 46%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 189 100% 57%;
+    --accent-foreground: 220 13% 9%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 13% 91%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 220 13% 91%;
 
-    --radius: 0.5rem;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 189 100% 57%;
+
+    --radius: 0.75rem;
+
+    /* Trading-specific colors */
+    --trading-bg: 220 13% 9%;
+    --trading-card: 220 13% 15%;
+    --trading-glass: 220 13% 15% / 0.7;
+    --trading-accent: 189 100% 57%;
+    --trading-buy: 142 76% 36%;
+    --trading-sell: 0 84% 60%;
+    --trading-neutral: 220 9% 46%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(189 100% 57%), hsl(189 100% 67%));
+    --gradient-glass: linear-gradient(135deg, hsl(220 13% 15% / 0.8), hsl(220 13% 20% / 0.6));
+    --gradient-glow: radial-gradient(circle at center, hsl(189 100% 57% / 0.3), transparent 70%);
+
+    /* Shadows */
+    --shadow-glass: 0 8px 32px hsl(220 13% 9% / 0.4);
+    --shadow-glow: 0 0 20px hsl(189 100% 57% / 0.3);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
     --sidebar-background: 0 0% 98%;
 
