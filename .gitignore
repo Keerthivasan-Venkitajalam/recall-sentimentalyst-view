@@ -1,3 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+.env
+.env.*
+
+# Node
+node_modules/
+bun.lockb
+
+# Build
+/dist
+/build
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.sqlite3
+temp_audio.aac
 # Logs
 logs
 *.log

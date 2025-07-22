@@ -12,9 +12,9 @@ from trading_client import TradingClient
 load_dotenv()
 
 # Configuration
+
 RECALL_API_KEY = os.getenv("RECALL_API_KEY")
-EXCHANGE_API_KEY = os.getenv("EXCHANGE_API_KEY")
-EXCHANGE_API_SECRET = os.getenv("EXCHANGE_API_SECRET")
+COINMARKETCAP_API_KEY = os.getenv("COINMARKETCAP_API_KEY")
 AUDIO_SOURCE_URL = os.getenv("AUDIO_SOURCE_URL")
 TRADING_PAIR = os.getenv("TRADING_PAIR")
 TRADE_AMOUNT_USD = float(os.getenv("TRADE_AMOUNT_USD", "100.0"))
@@ -24,16 +24,18 @@ SENTIMENT_THRESHOLD_SELL = float(os.getenv("SENTIMENT_THRESHOLD_SELL", "-0.5"))
 PRIMARY_KEYWORDS = [kw.strip() for kw in os.getenv("PRIMARY_KEYWORDS", "bitcoin,btc,ethereum,eth,crypto").split(",")]
 NEGATIVE_KEYWORDS = [kw.strip() for kw in os.getenv("NEGATIVE_KEYWORDS", "hack,fraud,ban,regulation,sec investigation").split(",")]
 
+
 # Basic validation
-if not RECALL_API_KEY or not EXCHANGE_API_KEY or not EXCHANGE_API_SECRET:
+if not RECALL_API_KEY or not COINMARKETCAP_API_KEY:
     logging.error("API keys are not set. Please check your .env file.")
     exit(1)
+
 
 # Instantiate services
 audio_handler = AudioHandler(AUDIO_SOURCE_URL, CHUNK_DURATION_SECONDS)
 recall_transcriber = RecallTranscriber(RECALL_API_KEY)
 analysis_engine = AnalysisEngine(PRIMARY_KEYWORDS, NEGATIVE_KEYWORDS, SENTIMENT_THRESHOLD_BUY, SENTIMENT_THRESHOLD_SELL)
-trading_client = TradingClient(EXCHANGE_API_KEY, EXCHANGE_API_SECRET)
+trading_client = TradingClient(COINMARKETCAP_API_KEY)
 
 
 def run_bot_cycle():
